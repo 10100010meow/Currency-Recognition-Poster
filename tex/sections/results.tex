@@ -1,0 +1,104 @@
+\block{Results}{
+	\section*{Results Overview}
+	The recognition system successfully detected all the banknotes in the 80 test images (67 images with 1 banknote, 11 images with 2 banknotes and 2 images with 3 banknotes).
+	\begin{tikzfigure}
+		\centering
+		\small
+		\tabulinesep = 0.3ex
+		\begin{tabu} to \linewidth { X[4.2,l,m] X[l,m] X[l,m] X[l,m] X[l,m] X[l,m] X[l,m] X[l,m] }
+			\textbf{Banknote value} & 5\,\euro{} & 10\,\euro{} & 20\,\euro{} & 50\,\euro{} & 100\,\euro{} & 200\,\euro{} & 500\,\euro{}	\\
+			\noalign{\vskip 1mm}
+			\hline
+			\noalign{\vskip 1mm}
+			\textbf{Nº of banknotes}			& 15		 & 12		   & 19			 & 19		   & 6			  & 9			 & 15			\\
+		\end{tabu}
+		\captionof{table}{Testing dataset overview}
+	\end{tikzfigure}
+
+
+	\begin{tikzfigure}
+		\centering
+		\small
+		\tabulinesep = 0.3ex
+		\begin{tabu} to \linewidth { X[0.6,c,m] X[0.8,c,m] X[c,m] X[c,m] X[c,m] }
+			\rowfont{\bfseries\itshape} Detector & Descriptor & Images with 1 banknote & Images with 2 banknotes & Images with 3 banknotes \\
+			\noalign{\vskip 2mm} 
+			\hline
+			\noalign{\vskip 2mm} 
+			SIFT	 & SIFT		  & 37			   & 7				  & 2	\\
+			SURF	 & SURF		  & 24			   & 3				  & 0	\\
+			GFTT	 & SIFT		  & 3			   & 1				  & 0	\\
+			FAST	 & SIFT		  & 1			   & 0				  & 0	\\
+			BRISK	 & BRISK	  & 1			   & 0				  & 0	\\
+			ORB		 & ORB		  & 1			   & 0				  & 0	\\
+		\end{tabu}
+		\captionof{table}{Selection of the configurations with the best recognition results (1 configuration per test image)}
+	\end{tikzfigure}
+
+
+	\section*{Banknote Recognition}
+	Figures 3 to 10 show some representative recognition test results.
+
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/10__(9).jpeg___SIFT-Detector_SIFT-Extractor_BF-Matcher_lowQualityImageDB_globalMatch__inliersMatches__0}
+			\captionof{figure}{Detection of a banknote in an ideal perspective view with background clutter (using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/5__(6).jpg___SURF-Detector_SURF-Extractor_BF-Matcher_lowQualityImageDB_globalMatch__inliersMatches__0}
+			\captionof{figure}{Detection of a banknote with perspective distortion and folding (using SURF detector, SURF descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+
+
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/100__(4).jpg___SIFT-Detector_SIFT-Extractor_BF-Matcher_dynamicQualityImageDB_globalMatch__inliersMatches__0.jpg}
+			\captionof{figure}{Detection of a partially folded banknote\\(using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/500.jpg___GFTT-Detector_SIFT-Extractor_BF-Matcher_dynamicQualityImageDB_globalMatch__inliersMatches__0}
+			\captionof{figure}{Detection of a partially occluded banknote\\(using GFTT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+
+
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/50__(13).jpg___SIFT-Detector_SIFT-Extractor_BF-Matcher_mediumQualityImageDB_globalMatch__inliersMatches__0}
+			\captionof{figure}{Detection of a partially visible banknote\\(using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/10-20-50.jpg___SIFT-Detector_SIFT-Extractor_BF-Matcher_dynamicQualityImageDB_globalMatch__inliersMatches__1}
+			\captionof{figure}{Detection of the first overlapping banknote\\(using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+
+
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/10-20-50.jpg___SIFT-Detector_SIFT-Extractor_BF-Matcher_dynamicQualityImageDB_globalMatch__inliersMatches__2}
+			\captionof{figure}{Detection of the second overlapping banknote\\(using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+	\begin{minipage}[b]{.47\linewidth}
+		\begin{tikzfigure}
+			\centering
+			\includegraphics[width=\linewidth]{notes-recognition/10-20-50.jpg___SIFT-Detector_SIFT-Extractor_BF-Matcher_dynamicQualityImageDB_globalMatch__inliersMatches__0}
+			\captionof{figure}{Detection of the third overlapping banknote\\(using SIFT detector, SIFT descriptors and BFMatcher)}
+		\end{tikzfigure}
+	\end{minipage}
+}
